@@ -52,4 +52,7 @@ public class Lista {
         return -1;
     }
 
+    public ArrayList<Libro> obtener(){
+        return (ArrayList<Libro>) biblioteca;
+    }
 }
