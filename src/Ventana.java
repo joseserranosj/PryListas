@@ -28,6 +28,7 @@ public class Ventana {
 
                 try {
                     biblioteca.agregar(new Libro(isbn,titulo,autor,cat,anio));
+                    JOptionPane.showMessageDialog(null,"Agregado");
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null,ex.getMessage());
                 }
@@ -39,10 +40,10 @@ public class Ventana {
                 DefaultListModel dlm=new DefaultListModel<>();
                 int indice=cboBuscar.getSelectedIndex();
                 switch (indice){
-                    case 1:dlm=new DefaultListModel<>();
+                    case 0:dlm=new DefaultListModel<>();
                         dlm.addAll(biblioteca.obtener());
                         break;
-                    case 2:dlm=new DefaultListModel<>();
+                    case 1:dlm=new DefaultListModel<>();
                         int isbn=Integer.parseInt(txtBuscar.getText());
                         biblioteca.binario(isbn);
                         int indice1=biblioteca.binario(isbn);
@@ -50,12 +51,22 @@ public class Ventana {
                             dlm.addElement(biblioteca.obtener().get(indice1));
                         }
                         break;
-                    case 3: dlm=new DefaultListModel<>();
+                    case 2: dlm=new DefaultListModel<>();
                         String t2=txtBuscar.getText();
                         dlm.addAll(biblioteca.buscar(t2));
                         break;
                 }
+                lstListar.setModel(dlm);
             }
         });
     }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Ventana");
+        frame.setContentPane(new Ventana().Ventana);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
 }
+

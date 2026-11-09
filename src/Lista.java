@@ -14,8 +14,9 @@ public class Lista {
         }else{
             if(dato.getIsbn()>biblioteca.get(tam-1).getIsbn()){
                 biblioteca.add(dato);
+            }else {
+                throw new Exception("ISBN no ordenado");
             }
-            throw  new Exception("ISBN no ordenado");
         }
     }
     public ArrayList<Libro> buscar(String texto){
