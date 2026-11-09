@@ -41,7 +41,7 @@ public class Lista {
         while (i<=s){
             c=(i+s)/2;
             int valor=biblioteca.get(c).getIsbn();
-            if(valor==biblioteca.get(c).getIsbn()){
+            if(isbn==valor){
                 return c;
             } else if (isbn>valor) {
                 i=c+1;
